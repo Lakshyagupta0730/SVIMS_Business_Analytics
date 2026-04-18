@@ -1,0 +1,142 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0b0b0f, #1a1a2e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container */
+.container {
+    background: #12121a;
+    padding: 30px;
+    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    color: white;
+    animation: fadeIn 1s ease;
+}
+
+/* Heading */
+.container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #bb86fc;
+}
+
+/* Labels */
+label {
+    font-size: 14px;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Inputs */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 6px;
+    background: #1e1e2f;
+    color: white;
+    outline: none;
+}
+
+/* Focus Effect */
+input:focus, select:focus {
+    border: 1px solid #bb86fc;
+}
+
+/* Button */
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: linear-gradient(135deg, #6a0dad, #8a2be2);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(138, 43, 226, 0.6);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Background rain container */
+.rain-bg span {
+    color: #eef3f7; /* bluish fintech glow */
+    font-weight: bold;
+}
+.rain-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Each text drop */
+.rain-bg span {
+    position: absolute;
+    top: -50px;
+    font-size: 14px;
+    color: #ebe3e3f6; /* very light */
+    animation: rain 10s linear infinite;
+}
+
+/* Random positions */
+.rain-bg span:nth-child(1) { left: 10%; animation-delay: 0s; }
+.rain-bg span:nth-child(2) { left: 20%; animation-delay: 2s; }
+.rain-bg span:nth-child(3) { left: 30%; animation-delay: 4s; }
+.rain-bg span:nth-child(4) { left: 40%; animation-delay: 1s; }
+.rain-bg span:nth-child(5) { left: 50%; animation-delay: 3s; }
+.rain-bg span:nth-child(6) { left: 60%; animation-delay: 5s; }
+.rain-bg span:nth-child(7) { left: 70%; animation-delay: 2s; }
+.rain-bg span:nth-child(8) { left: 80%; animation-delay: 4s; }
+.rain-bg span:nth-child(9) { left: 90%; animation-delay: 1s; }
+.rain-bg span:nth-child(10) { left: 15%; animation-delay: 3s; }
+
+/* Animation */
+@keyframes rain {
+    0% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.15;
+    }
+    90% {
+        opacity: 0.15;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}

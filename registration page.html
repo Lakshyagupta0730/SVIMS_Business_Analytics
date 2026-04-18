@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Business Analytics Club</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+    <div class="rain-bg">
+    <span>Goldman Sachs</span>
+    <span>JP Morgan</span>
+    <span>McKinsey</span>
+    <span>Deloitte</span>
+    <span>KPMG</span>
+    <span>EY</span>
+    <span>PwC</span>
+    <span>BlackRock</span>
+    <span>Bloomberg</span>
+    <span>Morgan Stanley</span>
+     </div>
+<div class="container">
+    <h2>Student Registration Form</h2>
+
+    <form id="regForm">
+        <!-- Name -->
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name" required>
+
+        <!-- Semester -->
+        <label>Semester</label>
+        <select required>
+            <option value="">Select Semester</option>
+            <option>1st</option>
+            <option>2nd</option>
+            <option>3rd</option>
+            <option>4th</option>
+
+        </select>
+
+        <!-- Year -->
+        <label>Year</label>
+        <select required>
+            <option value="">Select Year</option>
+            <option>1st Year</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+            <option>4th Year</option>
+        </select>
+
+        <!-- Email -->
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email" required>
+
+        <!-- Phone -->
+        <label>Phone Number</label>
+        <input type="tel" placeholder="Enter phone number" required>
+
+        <!-- Interested Domain -->
+        <label>Interested Domain</label>
+        <select required>
+            <option value="">Select Domain</option>
+            <option>Statistics</option>
+            <option>Data Analysis</option>
+            <option>Business Intelligence</option>
+            <option>Finance Analytics</option>
+        </select>
+
+        <!-- Submit -->
+        <button type="submit">Register</button>
+    </form>
+</div>
+<!-- Java Script  start from here -->
+<script>
+document.getElementById("regForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const data = {
+        name: document.querySelector('input[type="text"]').value,
+        semester: document.querySelectorAll('select')[0].value,
+        year: document.querySelectorAll('select')[1].value,
+        email: document.querySelector('input[type="email"]').value,
+        phone: document.querySelector('input[type="tel"]').value,
+        domain: document.querySelectorAll('select')[2].value
+    };
+<!--Replace Url with the actual update site to store the data - use the URL of your Google Apps Script web app-->
+    fetch("https://script.google.com/macros/s/AKfycbwSMyOQWInUIswKXbNYGPDvC_1KKn-mH2qOvA483tFT4jddmJ7O6aKVupClTs-owHVRrQ/exec", {
+        method: "POST",
+        body: JSON.stringify(data)
+    })
+    .then(res => res.text())
+    .then(() => {
+        alert("Registration Successful!");
+        document.getElementById("regForm").reset();
+    })
+    .catch(() => alert("Error!"));
+});
+</script>
+
+</body>
+</html>
